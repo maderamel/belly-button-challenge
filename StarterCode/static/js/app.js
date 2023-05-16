@@ -26,7 +26,7 @@ function buildMetadata(sample) {
 
   d3.json(samples).then((data)=> {
     let metaData = data.metadata;
-    // look for oject with same sample number
+    // look for oject with same sample number 
     let resultData = metaData.filter((sampleNum)=> sampleNum.id == sample);
     let sampResult = resultData[0];
     let demoPanel = d3.select("#sample-metadata");
@@ -34,30 +34,39 @@ function buildMetadata(sample) {
     Object.enteries(sampResult).forEach(([key, value]) => {demoPanel.append("h6").text(`${key}: ${value}`);
   });
    
-  };
+  });
 }
 
 // bar chart function
-function barChart(sample) {
+function forCharts(sample) {
   
+  // fetch data for plots
   d3.json(samples).then((data)=> {
     let sampleInfo = data.samples;
 
-    let filterSamples = sampleInfo.filter(sampObj => sampObj.id == sample);
+    let filterSamples = sampleInfo.filter(sampObj => 
+      sampObj.id == sample);
     let resultData = filterSamples[0];
-    let sample_values = resultData.sample_values;
+    
+    // variables for charts
+    let values = resultData.sample_values;
     let otu_ids = resultData.otu_ids;
     let otu_labels = resultData.otu_labels;
 
-    let trace1 = {
-      x: resultData.slice(0,10).reverse(),
-      y: otu_ids.slice(0,10).reverse(),
+    // bar chart
+    let trace1 = [{
+      x: values.slice(0,10).reverse(),
+      y: otu_ids.slice(0,10).map(otu_ids => `OTU ${otu_ids}`),
       text: otu_labels.slice(0,10).reverse(),
-      name: "Greek",
       type: "bar",
       orientation: "h"
-    };
-    Plotly.newPlot("bar", resultData, layout);
+    }
+  ];
+    let traceLayout = {
+      title: "Top 10 OTUs",
+      margin: {t: 30, l: 100}
+    }
+    Plotly.newPlot("bar", trace1, traceLayout);
     
   });
 
