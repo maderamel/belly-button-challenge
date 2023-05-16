@@ -71,6 +71,25 @@ function forCharts(sample) {
   });
 
 }
+  // bubble chart
 
+  let trace2 = {
+    x_axis: "OTU ID",
+    mode: "markers"
+  }
+
+  var bubblelayout = [{
+    x: otu_ids,
+    y: values,
+    height: 600,
+    width: 600,
+    mode: "markers",
+    marker: {
+      color: otu_ids,
+      size: values
+    }
+  }];
+  
+  Plotly.newPlot('bubbleChart', bubblelayout, trace2);
 
 init();
