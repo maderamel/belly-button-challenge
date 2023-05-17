@@ -68,7 +68,6 @@ function forCharts(sample) {
     }
     Plotly.newPlot("bar", trace1, traceLayout);
     
-  });
 
   // bubble chart
 
@@ -90,6 +89,8 @@ function forCharts(sample) {
   }];
   
   Plotly.newPlot('bubble', bubblelayout, trace2);
+});
+
 }
 
 init();
