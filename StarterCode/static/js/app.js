@@ -23,6 +23,11 @@ d3.json(samples).then((data)=> {
 });
 }
 
+function optionChanged(nextOpt) {
+  forCharts(nextOpt);
+  buildMetadata(nextOpt);
+}
+
 // build metadata function
 function buildMetadata(sample) {
 
