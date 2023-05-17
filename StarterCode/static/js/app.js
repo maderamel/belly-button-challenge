@@ -17,7 +17,7 @@ d3.json(samples).then((data)=> {
   console.log(sampleData);
   let first = sampleData[0];
   
-  buildChart(first);
+  forCharts(first);
   buildMetadata(first);
 
 });
