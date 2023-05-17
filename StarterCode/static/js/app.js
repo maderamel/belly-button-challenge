@@ -33,7 +33,7 @@ function buildMetadata(sample) {
     let sampResult = resultData[0];
     let demoPanel = d3.select("#sample-metadata");
     demoPanel.html("");
-    Object.enteries(sampResult).forEach(([key, value]) => {demoPanel.append("h6").text(`${key}: ${value}`);
+    Object.entries(sampResult).forEach(([key, value]) => {demoPanel.append("h6").text(`${key}: ${value}`);
   });
    
   });
