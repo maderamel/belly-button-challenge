@@ -15,10 +15,12 @@ d3.json(samples).then((data)=> {
   };
 
   console.log(sampleData);
+  let first = sampleData[0];
+  
+  buildChart(first);
+  buildMetadata(first);
+
 });
-let first = sampleData[0];
-buildchart(first);
-buildmetadata(first);
 }
 
 // build metadata function
