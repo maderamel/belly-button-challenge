@@ -90,6 +90,6 @@ function forCharts(sample) {
     }
   }];
   
-  Plotly.newPlot('bubbleChart', bubblelayout, trace2);
+  Plotly.newPlot('bubble', bubblelayout, trace2);
 
 init();
